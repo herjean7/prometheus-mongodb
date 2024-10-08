@@ -1,6 +1,6 @@
 ## Prometheus MongoDB Alerts
 
-#### Steps to Integrate your MongoDB Cluster with Prometheus
+### Steps to Integrate your MongoDB Cluster with Prometheus
 
 https://www.mongodb.com/docs/cloud-manager/tutorial/prometheus-integration/
 
@@ -69,7 +69,7 @@ Below are some alerts you can use to monitor your MongoDB cluster on Prometheus
           summary: "MongoDB Replication Lag (instance {{ $labels.instance }})"
           description: "Mongodb replication lag is more than 10s\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"      
 ```
-#### Details on Replica Set Member States
+### Details on Replica Set Member States
 
 https://www.mongodb.com/docs/manual/reference/replica-states/
 
