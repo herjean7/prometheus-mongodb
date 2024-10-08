@@ -69,6 +69,20 @@ Below are some alerts you can use to monitor your MongoDB cluster on Prometheus
           summary: "MongoDB Replication Lag (instance {{ $labels.instance }})"
           description: "Mongodb replication lag is more than 10s\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"      
 ```
+
+##### MongoDB Connections more than 10k
+    
+```yaml
+      - alert: MongodbConnections
+        expr: mongodb_connections_current > 10000
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "MongoDB Connections (instance {{ $labels.instance }})"
+          description: "MongoDB Replication set member Connections above 10k\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"     
+          
+```     
 ### Details on Replica Set Member States
 
 https://www.mongodb.com/docs/manual/reference/replica-states/
@@ -130,16 +144,3 @@ https://www.mongodb.com/docs/manual/reference/replica-states/
           
 ```
 
-##### MongoDB Connections more than 10k
-    
-```yaml
-      - alert: MongodbConnections
-        expr: mongodb_connections_current > 10000
-        for: 5m
-        labels:
-          severity: critical
-        annotations:
-          summary: "MongoDB Connections (instance {{ $labels.instance }})"
-          description: "MongoDB Replication set member Connections above 10k\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"     
-          
-```     
