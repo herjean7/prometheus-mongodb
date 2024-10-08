@@ -1,9 +1,11 @@
 ## Prometheus MongoDB Alerts
-Alerts to monitor your MongoDB cluster on Prometheus
 
 ##### Steps to Integrate your MongoDB Cluster with Prometheus
 
 https://www.mongodb.com/docs/cloud-manager/tutorial/prometheus-integration/
+
+Below are some alerts you can use to monitor your MongoDB cluster on Prometheus
+
 
 ##### MongoDB Replica Set Member Oplog Window Below 1 Hour
     
