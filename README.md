@@ -1,6 +1,6 @@
 ## Prometheus MongoDB Alerts
 
-##### Steps to Integrate your MongoDB Cluster with Prometheus
+#### Steps to Integrate your MongoDB Cluster with Prometheus
 
 https://www.mongodb.com/docs/cloud-manager/tutorial/prometheus-integration/
 
