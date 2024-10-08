@@ -132,15 +132,14 @@ https://www.mongodb.com/docs/manual/reference/replica-states/
 
 ##### MongoDB Replica Set Member State = ROLLBACK
     
-```yaml
-       - alert: MongodbReplicationStatus9
+```
+      - alert: MongodbReplicationStatus9
         expr: mongodb_members_state == 9
         for: 5m
         labels:
           severity: critical
         annotations:
           summary: "MongoDB replication Status 9 (instance {{ $labels.instance }})"
-          description: "MongoDB Replication set member is actively performing a rollback. Data is not available for reads\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"    
-          
+          description: "MongoDB Replication set member is actively performing a rollback. Data is not available for reads\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
 ```
 
