@@ -6,6 +6,43 @@ https://www.mongodb.com/docs/cloud-manager/tutorial/prometheus-integration/
 
 Below are some alerts you can use to monitor your MongoDB cluster on Prometheus
 
+##### MongoDB Cluster Storage Less Than 10%
+    
+```yaml
+      - alert: MongodbStorage
+        expr: ((hardware_disk_metrics_disk_space_free_bytes / (hardware_disk_metrics_disk_space_used_bytes{} + hardware_disk_metrics_disk_space_free_bytes{})) * 100) < 10
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "MongoDB Storage (instance {{ $labels.instance }})"
+          description: "MongoDB Storage Less Than 10% \n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"          
+```
+
+##### MongoDB Read Tickets Less than 10 (Note. MongoDB 7.0 onwards employ Dynamic Ticketing System)
+    
+```yaml
+      - alert: MongodbReadTickets
+        expr: mongodb_wiredTiger_concurrentTransactions_read_available < 10
+        labels:
+          severity: critical
+        annotations:
+          summary: "MongoDB Read Tickets (instance {{ $labels.instance }})"
+          description: "MongoDB Read Tickets Less Than 10 \n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"          
+```
+
+##### MongoDB Write Tickets Less than 10 (Note. MongoDB 7.0 onwards employ Dynamic Ticketing System)
+    
+```yaml
+      - alert: MongodbReadTickets
+        expr: mongodb_wiredTiger_concurrentTransactions_write_available < 10
+        labels:
+          severity: critical
+        annotations:
+          summary: "MongoDB Write Tickets (instance {{ $labels.instance }})"
+          description: "MongoDB Write Tickets Less Than 10 \n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"          
+```
+
 
 ##### MongoDB Replica Set Member Oplog Window Below 1 Hour
     
