@@ -47,7 +47,7 @@ Below are some alerts you can use to monitor your MongoDB cluster on Prometheus
 ##### MongoDB Replica Set Member Oplog Window Below 1 Hour
     
 ```yaml
-      - alert: MongodbOplogWindowBelow1Hour
+      - alert: MongodbOplogWindow
         expr: (mongodb_oplog_latestOptime-mongodb_oplog_earliestOptime) < 3600
         for: 5m
         labels:
